@@ -81,6 +81,15 @@ app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/upload", require("./routes/uploadRoutes"));
 app.use("/api/itinerary", require("./routes/itineraryRoutes"));
 
+
+
+/* ROOT ROUTE  */
+app.get("/", (req, res) => {
+  res.json({
+    message: "Trrip API running 🚀"
+  });
+});
+
 /* ---------------- HEALTH CHECK ---------------- */
 
 app.get("/health", (req, res) => {
