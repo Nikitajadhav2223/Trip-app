@@ -32,7 +32,14 @@ app.use("/api/upload",    require("./routes/uploadRoutes"));
 app.use("/api/itinerary", require("./routes/itineraryRoutes"));
 
 // Health check
-app.get("/", (req, res) => res.json({ message: "Trrip API running 🚀" }));
+// app.get("/", (req, res) => res.json({ message: "Trrip API running 🚀" }));
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server on port ${PORT}`));
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => console.log(`🚀 Server on port ${PORT}`));
+
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    message: "API working"
+  });
+});
