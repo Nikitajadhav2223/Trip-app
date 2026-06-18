@@ -6,7 +6,17 @@ require("dotenv").config();
 const app = express();
 
 // Middlewares
-app.use(cors({ origin: "http://localhost:3000" }));
+// app.use(cors({ origin: "http://localhost:3000" }));
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://trrip-itinerary-app.netlify.app",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use("/uploads", express.static("uploads")); // serve uploaded files
 
